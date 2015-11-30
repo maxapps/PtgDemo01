@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.ptgdemo01" version="1.0.0">
+  <name>PtgDemo01</name>
+  <description>
+   First demo of Portuguese App using Tabris.js
+  </description>
+  <author email="maxapps@gmail.com" href="https://maxapps.com">
+   Jeff Carver
+  </author>
+</widget>

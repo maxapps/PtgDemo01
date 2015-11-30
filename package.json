@@ -1,0 +1,8 @@
+{
+  "name": "ptgdemo01",
+  "description": "Portuguese Demo 01",
+  "main": "main.js",
+  "dependencies": {
+    "tabris": "1.1.0"
+  }
+}
