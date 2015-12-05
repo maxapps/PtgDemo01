@@ -7,4 +7,5 @@
   <author email="maxapps@gmail.com" href="https://maxapps.com">
    Jeff Carver
   </author>
+  <plugin name="cordova-plugin-dialogs" version="1.1.1" />
 </widget>
