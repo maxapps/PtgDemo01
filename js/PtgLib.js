@@ -57,6 +57,19 @@ function _compareSoundex(s1, s2) {
 }
 
 
+// _loadAudio()
+function _loadAudio() {
+  var sPath = tabris.app.getResourceLocation('./resources/audio/aboard.mp3');
+  console.warn(sPath);
+
+  window.plugins.NativeAudio.preloadSimple('aboard', sPath, function(msg) {
+    console.log('Audio loaded!');
+  }, function(msg) {
+    console.warn('error: ' + msg);
+  });
+}
+
+
 // _randomInt(iMin, iMax)
 function _randomInt(iMin, iMax) {
   return Math.floor(Math.random() * (iMax - iMin + 1)) + iMin;
@@ -222,6 +235,13 @@ _public.groups = function(bSort) {
 //                                    p - String with Portuguese word/phrase.
 //                                    d - Integer with duration of audio for the word.
 _public.init = function(oData) {
+  if (window.plugins) {
+    console.log('PLUGINS!');
+    if (window.plugins.NativeAudio) {
+      console.log('NativeAudio');
+      _loadAudio();
+    }
+  }
 // appData.clearValues();
   _appOptions = appData.getObject('AppOptions', 
       {playAudio:true, dupeWords:false, partCredit:false, selectedGroups:['group1']});
@@ -326,7 +346,11 @@ _public.option = function(sName) {
 // playAudio()
 // Plays the audio file for the current word.
 _public.playAudio = function() {
-  console.log('Audio: ' + _current.word.p);
+  if (window.plugins && window.plugins.NativeAudio) {
+    window.plugins.NativeAudio.play('aboard');
+  } else {
+    console.log('Audio: ' + _current.word.p);
+  }
 };
 
 
