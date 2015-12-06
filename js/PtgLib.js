@@ -61,6 +61,8 @@ function _compareSoundex(s1, s2) {
 function _loadAudio() {
   var sPath = tabris.app.getResourceLocation('resources/audio/aboard.mp3');
   console.warn(sPath);
+  sPath = sPath.substr(sPath.indexOf('www/') + 4);
+  console.warn(sPath);
 
   window.plugins.NativeAudio.preloadSimple('aboard', sPath, function(msg) {
     console.log('Audio loaded!');
