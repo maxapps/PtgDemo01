@@ -355,7 +355,7 @@ _public.playAudio = function() {
   //   console.log('Audio: ' + _current.word.p);
   // }
   if (window.TTS) {
-    window.TTS.speak({text:'Olá Mundo'}, 
+    window.TTS.speak({text:'Olá Mundo', locale:'pt-PT'}, 
       function() {
         console.log('success');
       },
