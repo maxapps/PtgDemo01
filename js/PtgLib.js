@@ -1,6 +1,7 @@
 var appData = require('../libs/maxapps/MaxAppData');
 
 // PRIVATE -------------------------------------------------------------------------------------------------------------
+// cordova-plugin-nativeaudio
 
 var _STATUS_LEARN  = 1;
 var _STATUS_HARD   = 6;
@@ -348,8 +349,20 @@ _public.option = function(sName) {
 // playAudio()
 // Plays the audio file for the current word.
 _public.playAudio = function() {
-  if (window.plugins && window.plugins.NativeAudio) {
-    window.plugins.NativeAudio.play('aboard');
+  // if (window.plugins && window.plugins.NativeAudio) {
+  //   window.plugins.NativeAudio.play('aboard');
+  // } else {
+  //   console.log('Audio: ' + _current.word.p);
+  // }
+  if (window.plugins && window.plugins.TTS) {
+    window.plugins.TTS.speak('hello world', 
+      function() {
+        console.log('success');
+      },
+      function(reason) {
+        console.warn(reason);
+      }
+    );
   } else {
     console.log('Audio: ' + _current.word.p);
   }
