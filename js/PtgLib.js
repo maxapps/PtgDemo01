@@ -354,18 +354,8 @@ _public.playAudio = function() {
   // } else {
   //   console.log('Audio: ' + _current.word.p);
   // }
-  var TheTTS;
-
   if (window.TTS) {
-    console.log('window.TTS');
-    TheTTS = window.TTS;
-  } else if (TTS) {
-    console.log('TTS');
-    TheTTS = TTS;
-  }
-
-  if (TheTTS) {
-    TheTTS.speak('hello world', 
+    window.TTS.speak({text:'Olá Mundo'}, 
       function() {
         console.log('success');
       },
@@ -374,7 +364,7 @@ _public.playAudio = function() {
       }
     );
   } else {
-    console.log('The Audio: ' + _current.word.p);
+    console.log('Speak: ' + _current.word.p);
   }
 };
 
